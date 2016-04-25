@@ -1,7 +1,7 @@
 <?php
 
 // Parameters
-$parameters = t3lib_div::_GP('tx_displaycontroller');
+$parameters = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_displaycontroller');
 
 // Default language of this website is 'fr'
 $language = 'fr';
@@ -69,7 +69,7 @@ saveParameters($parameters);
  */
 function translate($key) {
 	$extensionName = 'employer_searchform';
-	print Tx_Extbase_Utility_Localization::translate($key, $extensionName);
+	print \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate($key, $extensionName);
 }
 
 /**
@@ -114,7 +114,7 @@ function image($key) {
 function linkSort() {
 
 	// Parameters
-	$parameters = t3lib_div::_GP('tx_displaycontroller');
+	$parameters = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_displaycontroller');
 
 	// Set default sorting value
 	if (empty($parameters['sort'])) {
@@ -133,26 +133,26 @@ function linkSort() {
 		$additionalParams .= sprintf("&tx_displaycontroller[%s]=%s", $parameter, $value);
 	}
 
-	/** @var $contentObject tslib_cObj */
+	/** @var $contentObject \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer */
 	$contentObject = $GLOBALS['TSFE']->cObj;
 	$config['returnLast'] = 'url';
 	$config['parameter'] = $GLOBALS['TSFE']->id;
 	$config['additionalParams'] = $additionalParams;
-	print $contentObject->typolink('', $config);
+	print $contentObject->typoLink('', $config);
 }
 
 /**
  * @param $uid
  */
 function linkToDetail($uid) {
-	/** @var $contentObject tslib_cObj */
+	/** @var $contentObject \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer */
 	$contentObject = $GLOBALS['TSFE']->cObj;
 	$config = array();
 	$config['returnLast'] = 'url';
 	$config['parameter'] = 314;
 	$config['useCacheHash'] = 1;
 	$config['additionalParams'] = '&tx_displaycontroller[job]=' . $uid;
-	print $contentObject->typolink('', $config);
+	print $contentObject->typoLink('', $config);
 }
 
 /**
@@ -168,10 +168,10 @@ function numberOfResults($datastructure, $filter) {
 	}
 
 	print sprintf('%s %d-%d %s %d',
-		Tx_Extbase_Utility_Localization::translate('advertisements', $extensionName),
+		\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('advertisements', $extensionName),
 		$filter['limit']['offset'] * $filter['limit']['max'] + 1,
 		$total,
-		Tx_Extbase_Utility_Localization::translate('on', $extensionName),
+		\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('on', $extensionName),
 		$datastructure['tx_employer_jobs']['totalCount']
 	);
 }
@@ -184,7 +184,7 @@ function numberOfResults($datastructure, $filter) {
  */
 function pageBrowser($datastructure, $filter) {
 
-	/** @var $contentObject tslib_cObj */
+	/** @var $contentObject \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer */
 	$contentObject = $GLOBALS['TSFE']->cObj;
 	$conf = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_pagebrowse_pi1.'];
 	$conf['pageParameterName'] = 'tx_displaycontroller|page';
@@ -217,10 +217,10 @@ function pageBrowser($datastructure, $filter) {
  *
  * This could quickly become  error-prone.
  *
- * @param $parameters Array The parameters coming from the URL
+ * @param $parameters array The parameters coming from the URL
  */
 function saveParameters($parameters) {
-	/** @var $user tslib_feUserAuth */
+	/** @var $user \TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication */
 	$user = $GLOBALS['TSFE']->fe_user;
 
 	if (empty($parameters['sort'])) {
@@ -234,5 +234,3 @@ function saveParameters($parameters) {
 	}
 	$user->setKey('ses', 'job_search', $values);
 }
-
-?>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-04-25T09:22:55Z" product-name="phpdisplay">
+		<header/>
+		<body>
+			<trans-unit id="tx_phpdisplay_displays" xml:space="preserve">
+				<source>PHP based Display</source>
+			</trans-unit>
+			<trans-unit id="tx_phpdisplay_displays.title" xml:space="preserve">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_phpdisplay_displays.description" xml:space="preserve">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_phpdisplay_displays.mappings" xml:space="preserve">
+				<source>Mappings</source>
+			</trans-unit>
+			<trans-unit id="tx_phpdisplay_displays.template" xml:space="preserve">
+				<source>Template path</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
