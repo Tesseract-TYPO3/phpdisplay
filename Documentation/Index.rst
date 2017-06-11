@@ -30,7 +30,7 @@ EXT: PHP-based Data Display (Data Consumer)
         forAdmins, forIntermediates, tesseract
 
     :Copyright:
-        2008-2016
+        2010-2017
 
     :Author:
         Fabien Udriot

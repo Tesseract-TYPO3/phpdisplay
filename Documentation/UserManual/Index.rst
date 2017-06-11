@@ -18,8 +18,24 @@ Setting up a template
 ---------------------
 
 #. Create a new record of type PHP based Display on a page or a sysfolder.
-#. Define a value for field "Template path" (cf. screenshot below).
-#. Start editing the file. Variable **$datastructure**  contains the result of the data provider and
+#. Define a value for field "Template path" by
+   picking a file using the file browser.
+
+   .. figure:: ../../Images/PhpDisplayRecord.png
+   	  :alt: A typical PHP Display record
+
+      A PHP Display element and all its input fields
+
+   .. important::
+
+      Using the :code:`EXT:` syntax is not recommended anymore. It will likely be dropped entirely
+      in a future version, to make things more consistent with the TYPO3 CMS Core.
+
+      If you store your templates inside an extension, you should create a File Storage pointing
+      to that extension, so that you can pick files from there using the file browser.
+
+
+#. Start editing the file. Variable :code:`$datastructure` contains the result of the data provider and
    can be used to manipulate data in the template. Some **useful examples** can be taken from the files
    in the :file:`Samples` folder.
 
@@ -29,9 +45,6 @@ Setting up a template
         // a good starting point is to display / debug the structure
         print_r($datastructure);
     ?>
-
-
-.. image:: ../Images/PhpDisplayRecord.png
 
 
 .. _user-manual-available-variables:
@@ -58,7 +71,7 @@ Syntax overview
 ---------------
 
 As said, PHP Display is using PHP as a language template. To avoid confusion whenever writing PHP
-code within HTML, it is recommended to use the syntax bellow:
+code within HTML, it is recommended to use the syntax below:
 
 .. code-block:: php
 
@@ -83,10 +96,10 @@ Basically, a very basic PHP based template can looks like:
 
     Here is a list of pages:
     <ul>
-        <li>
-            <?php foreach($datastructure['page']['records'] as $record): ?>
+        <?php foreach($datastructure['page']['records'] as $record): ?>
+            <li>
                 <?php print $record['title'] ?>
-            <?php endforeach ?>
-        </li>
+            </li>
+        <?php endforeach ?>
     </ul>
 

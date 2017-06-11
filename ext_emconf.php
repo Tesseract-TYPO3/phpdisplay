@@ -20,23 +20,21 @@ $EM_CONF[$_EXTKEY] = array (
   'clearCacheOnLoad' => 0,
   'author_company' => '',
   'version' => '2.0.0',
-  'constraints' => 
+  'constraints' =>
   array (
-    'depends' => 
+    'depends' =>
     array (
-      'typo3' => '7.6.0-7.99.99',
+      'typo3' => '7.6.0-8.99.99',
       'tesseract' => '2.0.0-0.0.0',
     ),
-    'conflicts' => 
+    'conflicts' =>
     array (
     ),
-    'suggests' => 
+    'suggests' =>
     array (
     ),
   ),
   '_md5_values_when_last_written' => 'a:24:{s:9:"ChangeLog";s:4:"4d6e";s:11:"LICENSE.txt";s:4:"6404";s:10:"README.txt";s:4:"0448";s:13:"composer.json";s:4:"ac53";s:12:"ext_icon.png";s:4:"55ad";s:17:"ext_localconf.php";s:4:"c53b";s:14:"ext_tables.php";s:4:"5d49";s:14:"ext_tables.sql";s:4:"b2b4";s:34:"Classes/Component/DataConsumer.php";s:4:"a5ef";s:28:"Classes/Utility/Template.php";s:4:"9651";s:44:"Configuration/TCA/tx_phpdisplay_displays.php";s:4:"ea48";s:42:"Configuration/TCA/Overrides/tt_content.php";s:4:"681b";s:26:"Documentation/Includes.txt";s:4:"6d5f";s:23:"Documentation/Index.rst";s:4:"61cf";s:26:"Documentation/Settings.yml";s:4:"549e";s:36:"Documentation/BugReporting/Index.rst";s:4:"1d35";s:41:"Documentation/Images/PhpDisplayRecord.png";s:4:"8e52";s:36:"Documentation/Installation/Index.rst";s:4:"84bd";s:36:"Documentation/Introduction/Index.rst";s:4:"f800";s:34:"Documentation/UserManual/Index.rst";s:4:"1b3a";s:43:"Resources/Private/Language/locallang_db.xlf";s:4:"c3a8";s:37:"Resources/Public/Icons/PhpDisplay.png";s:4:"55ad";s:20:"Samples/Advanced.php";s:4:"57e4";s:18:"Samples/Simple.php";s:4:"e9ce";}',
-  'comment' => 'Compatibility with TYPO3 CMS 7 LTS; refactored using namespaces.',
-  'user' => 'francois',
 );
 
 ?>

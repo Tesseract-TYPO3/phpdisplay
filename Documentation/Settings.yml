@@ -4,7 +4,7 @@
 
 ---
 conf.py:
-  copyright: 208-2016
+  copyright: 2010-2017
   project: EXT: PHP-based Data Display (Data Consumer)
   version: 2.0
   release: 2.0.0

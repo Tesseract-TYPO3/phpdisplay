@@ -18,6 +18,9 @@
 			<trans-unit id="tx_phpdisplay_displays.template" xml:space="preserve">
 				<source>Template path</source>
 			</trans-unit>
+			<trans-unit id="tx_phpdisplay_displays.template.popup" xml:space="preserve">
+				<source>Choose a template file</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

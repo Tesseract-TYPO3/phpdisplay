@@ -167,9 +167,13 @@ class DataConsumer extends FrontendConsumerBase
      */
     public function startProcess()
     {
-        if (isset($GLOBALS['_GET']['debug']['structure']) && isset($GLOBALS['TYPO3_MISC']['microtime_BE_USER_start'])) {
-            DebuggerUtility::var_dump($this->structure);
-        }
+        $this->controller->addMessage(
+                $this->extKey,
+                'Received data structure',
+                '',
+                FlashMessage::INFO,
+                $this->structure
+        );
         // Initializes local cObj
         $this->localCObj = GeneralUtility::makeInstance(ContentObjectRenderer::class);
         $this->configuration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$this->extKey]);
@@ -178,6 +182,12 @@ class DataConsumer extends FrontendConsumerBase
         // Get the full path to the template file
         try {
             $filePath = Utilities::getTemplateFilePath($this->consumerData['template']);
+            $this->controller->addMessage(
+                    $this->extKey,
+                    'Template file: ' . $filePath,
+                    '',
+                    FlashMessage::INFO
+            );
 
             /** @var $template Template */
             $template = GeneralUtility::makeInstance(Template::class);
@@ -192,22 +202,6 @@ class DataConsumer extends FrontendConsumerBase
                     'Error processing the view',
                     FlashMessage::ERROR
             );
-        }
-    }
-
-    /**
-     * Displays in the frontend or in the devlog some debug output
-     *
-     * @return void
-     */
-    protected function debug()
-    {
-        if (isset($GLOBALS['_GET']['debug']['structure']) && $GLOBALS['TSFE']->beUserLogin) {
-            DebuggerUtility::var_dump($this->getDataStructure());
-        }
-
-        if (isset($GLOBALS['_GET']['debug']['filter']) && $GLOBALS['TSFE']->beUserLogin) {
-            DebuggerUtility::var_dump($this->getFilter());
         }
     }
 }
