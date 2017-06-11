@@ -36,7 +36,6 @@ class DataConsumer extends FrontendConsumerBase
 
     public $tsKey = 'tx_phpdisplay';
     public $extKey = 'phpdisplay';
-    protected $configuration;
     protected $table; // Name of the table where the details about the data display are stored
     protected $uid; // Primary key of the record to fetch for the details
     protected $structure = array(); // Input standardised data structure
@@ -174,10 +173,6 @@ class DataConsumer extends FrontendConsumerBase
                 FlashMessage::INFO,
                 $this->structure
         );
-        // Initializes local cObj
-        $this->localCObj = GeneralUtility::makeInstance(ContentObjectRenderer::class);
-        $this->configuration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$this->extKey]);
-
 
         // Get the full path to the template file
         try {
